@@ -48,3 +48,6 @@ Thumbs.db
 # ignore node/grunt dependency directories
 node_modules
 vendor
+!vendor/autoload.php
+!vendor/composer
+!vendor/composer/*
