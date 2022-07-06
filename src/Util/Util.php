@@ -33,7 +33,7 @@ class Util extends Base {
 	 */
 	public function init() {
 		include_once SITE_CORE_DIR . '/src/Util/Comments.php';
-		$comments = new Comments( $this->version, $this->plugin_nam );
+		$comments = new Comments( $this->version, $this->plugin_name );
 	}
 
 }
