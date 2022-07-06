@@ -35,7 +35,6 @@ class PostTypes extends Base {
 	public function init() {
 		// include_once SITE_CORE_DIR . '/src/PostTypes/Issue.php';
 		new Issue( $this->version, $this->plugin_name );
-		new Mention( $this->version, $this->plugin_name );
 	}
 
 }
