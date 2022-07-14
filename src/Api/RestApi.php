@@ -58,7 +58,9 @@ class RestApi extends Base {
 	 * @param array $query_params
 	 * @return array $query_params
 	 */
-	public function rest_user_collection_add_params( $query_params ) : array {}
+	public function rest_user_collection_add_params( $query_params ) : array {
+		return $query_params;
+	}
 
 	/**
 	 * Modify the user query
@@ -67,6 +69,8 @@ class RestApi extends Base {
 	 * @param WP_REST_Request $request
 	 * @return array $prepared_args
 	 */
-	public function rest_user_modify_query( $prepared_args, $request ) : array {}
+	public function rest_user_modify_query( $prepared_args, $request ) : array {
+		return $prepared_args;
+	}
 
 }
