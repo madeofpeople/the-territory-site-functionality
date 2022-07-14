@@ -8,7 +8,7 @@
 namespace SiteFunctionality\PostTypes;
 
 use SiteFunctionality\Abstracts\Base;
-use SiteFunctionality\PostTypes\Issue;
+use SiteFunctionality\PostTypes\ShareCard;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,7 +33,7 @@ class PostTypes extends Base {
 	 * @return void
 	 */
 	public function init() {
-		new Issue( $this->version, $this->plugin_name );
+		new ShareCard( $this->version, $this->plugin_name );
 	}
 
 }
