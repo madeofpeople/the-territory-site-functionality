@@ -1,6 +1,8 @@
 import { registerBlockType, registerBlockCollection } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 
+// import './filters';
+
 import * as hero from './hero';
 
 const blocks = [

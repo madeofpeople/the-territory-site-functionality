@@ -21,7 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function render( $attributes, $content, $block ) {
-    $wrapper_attributes = \get_block_wrapper_attributes( array() );
+    $args = array();
+    if ( array_key_exists( 'backgroundImageId', $attributes ) && $attributes['backgroundImageId'] > 0 ) {
+        $args['style'] = sprintf( 'background-image: url(%s);', \wp_get_attachment_image_url( (int) $attributes['backgroundImageId'] ) );
+    }
+    $wrapper_attributes = \get_block_wrapper_attributes( $args );
 
     $content = '<div ' . $wrapper_attributes . '>';
 

@@ -13,6 +13,12 @@
         "hero",
         "landing"
     ],
+    "attributes": {
+        "imageId": {
+            "type": "number",
+            "default": 0
+        }
+    },
     "supports": {
         "align": true,
         "anchor": true,
@@ -26,7 +32,6 @@
         "defaultStylePicker": false,
         "__experimentalLayout": false
     },
-    "attributes": {},
     "variations": [],
     "styles": [],
     "example": {},
