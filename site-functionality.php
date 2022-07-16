@@ -46,6 +46,7 @@ const VERSION = '1.0.0';
 function site_functionality_init() {
 	load_plugin_textdomain( 'site-functionality', false, SITE_CORE_DIR . '/languages' );
 
+	include_once SITE_CORE_DIR . '/blocks/blocks.php';
 	include_once SITE_CORE_DIR . '/src/Abstracts/Base.php';
 	include_once SITE_CORE_DIR . '/src/Abstracts/PostType.php';
 	include_once SITE_CORE_DIR . '/src/Abstracts/Taxonomy.php';
