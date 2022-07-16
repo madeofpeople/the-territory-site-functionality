@@ -19,14 +19,7 @@ class CustomFields extends Base {
 	/**
 	 * Custom fields
 	 */
-	public const FIELDS = array(
-		'amount'     => 'number',
-		'number'     => 'integer',
-		'average'    => 'number',
-		'price'      => 'number',
-		'file'       => 'string',
-		'show_title' => 'boolean',
-	);
+	public const FIELDS = array();
 
 	/**
 	 * Constructor.
