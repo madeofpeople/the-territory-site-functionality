@@ -20,4 +20,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
 
       - name: Deploy with rsync
-        run: rsync -avz --dry-run ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ti/theterritoryimpact.org/web/wp-content/plugins/the-territory-site-functionality/
+        run: rsync -avz --dry-run --exclude '.git' ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ti/theterritoryimpact.org/web/wp-content/plugins/the-territory-site-functionality/
