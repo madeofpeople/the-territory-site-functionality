@@ -1,0 +1,37 @@
+{
+    "apiVersion": 2,
+    "version": "1.0.0",
+    "textdomain": "site-functionality",
+    "name": "site-functionality/page-nav",
+    "title": "Hero",
+    "category": "text",
+    "collection": "site-functionality",
+    "icon": "button",
+    "className": "page-nav",
+    "description": "Display a page-nav element on page",
+    "keywords": [
+        "navigation",
+        "page menu"
+    ],
+    "attributes": {},
+    "supports": {
+        "align": true,
+        "anchor": true,
+        "color": {
+            "background": false,
+            "text": false,
+            "gradients": false,
+            "link": false
+        },
+        "customClassName": true,
+        "defaultStylePicker": false,
+        "__experimentalLayout": false,
+        "multiple": false
+    },
+    "variations": [],
+    "styles": [],
+    "example": {},
+    "style": "file:../../build/style-index.css",
+    "editorScript": "site-functionality",
+	"editorStyle": "file:../../build/index.css"
+}

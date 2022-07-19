@@ -3,11 +3,9 @@ import { __ } from '@wordpress/i18n';
 
 // import './filters';
 
-import * as hero from './hero';
+// import * as pageNav from './page-nav';
 
-const blocks = [
-	hero
-];
+const blocks = [];
 
 /**
  * Function to register an individual block.
