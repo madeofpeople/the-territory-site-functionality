@@ -5,7 +5,7 @@
  * @since   1.0.0
  * @package Site_Functionality
  */
-namespace Site_Functionality\Blocks\Hero;
+namespace Site_Functionality\Blocks\PageNav;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function render( $attributes, $content, $block ) {
+    $args = array();
     $wrapper_attributes = \get_block_wrapper_attributes( $args );
 
     $content = '<div ' . $wrapper_attributes . '>';
@@ -35,7 +36,7 @@ function render( $attributes, $content, $block ) {
 }
 
 /**
- * Registers the `site-functionality/event-time` block on the server.
+ * Registers the `site-functionality/page-nav` block on the server.
  */
 function register() {
 	\register_block_type(

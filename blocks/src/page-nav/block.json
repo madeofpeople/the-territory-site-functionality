@@ -3,15 +3,16 @@
     "version": "1.0.0",
     "textdomain": "site-functionality",
     "name": "site-functionality/page-nav",
-    "title": "Hero",
+    "title": "Page Navigation",
     "category": "text",
     "collection": "site-functionality",
     "icon": "button",
     "className": "page-nav",
-    "description": "Display a page-nav element on page",
+    "description": "Display an internal page navigation element.",
     "keywords": [
         "navigation",
-        "page menu"
+        "page menu",
+        "button"
     ],
     "attributes": {},
     "supports": {

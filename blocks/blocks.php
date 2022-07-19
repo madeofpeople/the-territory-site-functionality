@@ -7,7 +7,7 @@
  */
 namespace SiteFunctionality\Blocks;
 
-require_once \plugin_dir_path( __FILE__ ) . 'src/hero/index.php';
+require_once \plugin_dir_path( __FILE__ ) . 'src/page-nav/index.php';
 
 
 const TEMPLATE_PARAMS = array(
