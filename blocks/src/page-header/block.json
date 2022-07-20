@@ -1,0 +1,38 @@
+{
+    "apiVersion": 2,
+    "version": "1.0.0",
+    "textdomain": "site-functionality",
+    "name": "site-functionality/page-header",
+    "title": "Page Header",
+    "category": "text",
+    "collection": "site-functionality",
+    "icon": "align-wide",
+    "className": "page-header",
+    "description": "Display a block in page header.",
+    "keywords": [
+        "navigation",
+        "image banner",
+        "header"
+    ],
+    "attributes": {},
+    "supports": {
+        "align": true,
+        "anchor": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": false,
+            "link": false
+        },
+        "customClassName": true,
+        "defaultStylePicker": false,
+        "__experimentalLayout": false,
+        "multiple": false
+    },
+    "variations": [],
+    "styles": [],
+    "example": {},
+    "style": "file:../../build/style-index.css",
+    "editorScript": "site-functionality",
+	"editorStyle": "file:../../build/index.css"
+}
