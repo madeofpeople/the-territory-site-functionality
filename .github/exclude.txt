@@ -1,0 +1,5 @@
+.*
+*.lock
+phpcs.xml.dist
+node_modules/
+/blocks/src/
