@@ -31,7 +31,53 @@
     },
     "variations": [],
     "styles": [],
-    "example": {},
+    "example": {
+        "innerBlocks": [
+            {
+                "name": "core/cover",
+                "attributes": {
+                    "className": "header-banner",
+                    "dimRatio": 0,
+                    "url": "https://i.guim.co.uk/img/media/65e99d117d372368511b849625a87c742c7a369b/0_43_5032_3020/master/5032.jpg?width=1020&quality=85&fit=max&s=ae9fea20d1bc74987f4ee00aa3114262"
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/group",
+                        "attributes": {
+                            "className": "header-content"
+                        },
+                        "innerBlocks": [
+                            {
+                                "name": "core/heading",
+                                "attributes": {
+                                    "level": 1,
+                                    "placeholder": "Add Heading...",
+                                    "className": "header-content-title",
+                                    "content": "Supporting Indigenous <br>Land Defenders"
+                                }
+                            },
+                            {
+                                "name": "core/buttons",
+                                "attributes": {
+                                    "className":"header-content-buttons"
+                                },
+                                "innerBlocks": [
+                                    {
+                                        "name": "core/button",
+                                        "attributes": {
+                                            "text": "Watch the Film",
+                                            "className": "header-content-button",
+                                            "url": "#"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
     "style": "file:../../build/style-index.css",
     "editorScript": "site-functionality",
 	"editorStyle": "file:../../build/index.css"
