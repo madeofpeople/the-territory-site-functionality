@@ -34,14 +34,14 @@
 	<!-- The minimum supported WordPress version. This should match what's listed in style.css. -->
 	<rule ref="WordPress.WP.DeprecatedFunctions">
 		<properties>
-			<property name="minimum_supported_version" value="5.6"/>
+			<property name="minimum_supported_version" value="5.9"/>
 		</properties>
 	</rule>
 
 	<!-- Allow for theme specific exceptions to the file name rules based on the theme hierarchy. -->
 	<rule ref="WordPress.Files.FileName">
 		<properties>
-			<property name="is_theme" value="true"/>
+			<property name="is_theme" value="false"/>
 		</properties>
 	</rule>
 
@@ -49,7 +49,7 @@
 		 Multiple valid prefixes can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="_s" />
+			<property name="prefixes" type="array" value="site_functionality" />
 		</properties>
 	</rule>
 
@@ -57,24 +57,26 @@
 		 Multiple valid text domains can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="_s"/>
+			<property name="text_domain" type="array" value="site-functionality"/>
 		</properties>
 	</rule>
 
 	<!-- Use WordPress PHP Compatibility. -->
 	<rule ref="PHPCompatibilityWP"/>
 
-	<!-- WordPress Core currently supports PHP 5.6+. -->
-	<config name="testVersion" value="5.6-"/>
+	<!-- WordPress Core currently supports PHP 5.9+. -->
+	<config name="testVersion" value="5.9-"/>
 
 	<!-- Only sniff PHP files. -->
 	<arg name="extensions" value="php"/>
 
-	<!-- Only sniff the theme. -->
+	<!-- Only sniff the plugin. -->
 	<file>./</file>
 
 	<!-- Don't sniff the following directories or file types. -->
 	<exclude-pattern>/build/*</exclude-pattern>
 	<exclude-pattern>/node_modules/*</exclude-pattern>
-	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>.*</exclude-pattern>
+	<exclude-pattern>*.lock</exclude-pattern>
+	<exclude-pattern>/blocks/src/*</exclude-pattern>
 </ruleset>
