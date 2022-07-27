@@ -57,6 +57,7 @@ const ALLOWED_BLOCKS = [
 	'getwid/section',
 	'nk/awb',
 	'core/post-title',
+	'site-functionality/page-nav',
 	'core/navigation',
 	'core/navigation-link',
 	'core/buttons', 
