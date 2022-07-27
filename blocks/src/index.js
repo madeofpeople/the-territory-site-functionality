@@ -5,10 +5,12 @@ import { __ } from '@wordpress/i18n';
 
 import * as pageHeader from './page-header';
 import * as pageNav from './page-nav';
+import * as tout from './tout';
 
 const blocks = [
 	pageHeader,
-	pageNav
+	pageNav,
+	tout
 ];
 
 /**

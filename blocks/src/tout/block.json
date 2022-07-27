@@ -1,0 +1,79 @@
+{
+    "apiVersion": 2,
+    "version": "1.0.0",
+    "textdomain": "site-functionality",
+    "name": "site-functionality/tout",
+    "title": "Tout",
+    "category": "touts",
+    "collection": "site-functionality",
+    "description": "Display a tout on page",
+    "keywords": [
+        "callout",
+        "tout"
+    ],
+    "attributes": {
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "linkTarget": {
+			"type": "string"
+		},
+		"rel": {
+			"type": "string"
+        },
+        "className": {
+            "type": "string",
+            "default": "tout"
+        }
+    },
+    "supports": {
+        "align": true,
+        "anchor": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": false,
+            "link": false
+        },
+        "customClassName": true,
+        "defaultStylePicker": false,
+        "__experimentalLayout": false,
+        "__experimentalStyle": false,
+        "__experimentalBorder": false
+    },
+    "example" : {
+        "attributes": {
+            "className": "tout"
+        },
+        "innerBlocks": [
+            {
+                "name": "core/heading",
+                "attributes": {
+                    "level": 2,
+                    "className": "tout__heading",
+                    "content": "Donate to the Uru-eu-WAU-WAU Association"
+                }
+            },
+            {
+                "name": "core/image",
+                "attributes": {
+                    "className": "tout__image",
+                    "url": "https://s.w.org/images/core/5.3/MtBlanc1.jpg",
+                    "sizeSlug": "full",
+                    "linkDestination": "none"
+                }
+            },
+            {
+                "name": "core/paragraph",
+                "attributes": {
+                    "className": "tout__content",
+                    "content": "The Uru-eu-wau-wau Association of the Jupaú people defends a critical area of over 6,000 square miles of pristine rainforest. Help support Bitaté and his community.."
+                }
+            }
+        ]
+    },
+    "style": "file:../../build/style-index.css",
+    "editorScript": "site-functionality",
+	"editorStyle": "file:../../build/index.css"
+}
