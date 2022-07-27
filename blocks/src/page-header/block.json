@@ -4,11 +4,11 @@
     "textdomain": "site-functionality",
     "name": "site-functionality/page-header",
     "title": "Page Header",
-    "category": "text",
+    "category": "design",
     "collection": "site-functionality",
     "icon": "align-wide",
     "className": "page-header",
-    "description": "Display a block in page header.",
+    "description": "Display a cover image or video in page header.",
     "keywords": [
         "navigation",
         "image banner",
@@ -38,7 +38,7 @@
                 "attributes": {
                     "className": "header-banner",
                     "dimRatio": 0,
-                    "url": "https://i.guim.co.uk/img/media/65e99d117d372368511b849625a87c742c7a369b/0_43_5032_3020/master/5032.jpg?width=1020&quality=85&fit=max&s=ae9fea20d1bc74987f4ee00aa3114262"
+                    "url": "https://ichef.bbci.co.uk/news/2048/cpsprodpb/0857/production/_107953120_mediaitem107950526.jpg"
                 },
                 "innerBlocks": [
                     {

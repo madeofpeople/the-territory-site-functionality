@@ -54,6 +54,8 @@ const TEMPLATE = [
 
 const ALLOWED_BLOCKS = [ 
 	'core/cover',
+	'getwid/section',
+	'nk/awb',
 	'core/post-title',
 	'core/navigation',
 	'core/navigation-link',
