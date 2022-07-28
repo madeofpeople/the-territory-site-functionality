@@ -11,6 +11,7 @@ use SiteFunctionality\Abstracts\Base;
 use SiteFunctionality\PostTypes\ShareCard;
 use SiteFunctionality\PostTypes\Press;
 use SiteFunctionality\PostTypes\Review;
+use SiteFunctionality\PostTypes\Social;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,9 +36,9 @@ class PostTypes extends Base {
 	 * @return void
 	 */
 	public function init() {
-		// new ShareCard( $this->version, $this->plugin_name );
 		new Press( $this->version, $this->plugin_name );
 		new Review( $this->version, $this->plugin_name );
+		new Social( $this->version, $this->plugin_name );
 
 		\add_filter( 'page-links-to-post-types', array( $this, 'external_links' ) );
 	}
