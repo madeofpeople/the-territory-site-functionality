@@ -48,28 +48,32 @@
         },
         "innerBlocks": [
             {
-                "name": "core/heading",
+                "name": "core/cover",
                 "attributes": {
-                    "level": 2,
-                    "className": "tout__heading",
-                    "content": "Donate to the Uru-eu-WAU-WAU Association"
-                }
-            },
-            {
-                "name": "core/image",
-                "attributes": {
-                    "className": "tout__image",
-                    "url": "https://s.w.org/images/core/5.3/MtBlanc1.jpg",
-                    "sizeSlug": "full",
-                    "linkDestination": "none"
-                }
-            },
-            {
-                "name": "core/paragraph",
-                "attributes": {
-                    "className": "tout__content",
-                    "content": "The Uru-eu-wau-wau Association of the Jupaú people defends a critical area of over 6,000 square miles of pristine rainforest. Help support Bitaté and his community.."
-                }
+                    "isParallax": true,
+                    "dimRatio": 0,
+                    "url": "https://images.unsplash.com/photo-1520991323542-c159d7282b9f",
+                    "backgroundColor": "rgba(128, 173, 108, 0.25)"
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/heading",
+                        "attributes": {
+                            "level": 2,
+                            "className": "tout__heading",
+                            "textColor": "white",
+                            "content": "Indigenous-led Monitoring and Surveillance"
+                        }
+                    },
+                    {
+                        "name": "core/paragraph",
+                        "attributes": {
+                            "className": "tout__content",
+                            "textColor": "white",
+                            "content": "We, are calling on governments and businesses to work together to finance and empower indigenous-led monitoring for deforestation-free supply chains."
+                        }
+                    }
+                ]
             }
         ]
     },
