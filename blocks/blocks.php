@@ -10,6 +10,7 @@ namespace SiteFunctionality\Blocks;
 require_once \plugin_dir_path( __FILE__ ) . 'src/page-header/index.php';
 require_once \plugin_dir_path( __FILE__ ) . 'src/page-nav/index.php';
 require_once \plugin_dir_path( __FILE__ ) . 'src/tout/index.php';
+require_once \plugin_dir_path( __FILE__ ) . 'src/tout-linked/index.php';
 
 
 
