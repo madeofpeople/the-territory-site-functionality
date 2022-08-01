@@ -1,24 +1,18 @@
 import {
 	BlockControls,
 	InnerBlocks,
-	InspectorControls,
 	useBlockProps,
 	__experimentalLinkControl as LinkControl,
 	__experimentalLinkControlSearchInput as LinkControlSearchInput,
 } from '@wordpress/block-editor';
 
 import {
-	Button,
-	ButtonGroup,
-	PanelBody,
-	PanelRow,
 	ToolbarButton,
 	Popover,
 } from '@wordpress/components';
 
 import { useEffect, useState, useRef } from '@wordpress/element';
-
-import { displayShortcut, isKeyboardEvent } from '@wordpress/keycodes';
+import { displayShortcut } from '@wordpress/keycodes';
 import { link, linkOff } from '@wordpress/icons';
 
 import { __ } from '@wordpress/i18n';
@@ -31,41 +25,51 @@ import './editor.scss';
 
 const TEMPLATE = [
 	[
-		'core/heading',
+		'core/cover',
 		{
-			placeholder: __( 'Add Heading...', 'site-functionality' ),
-			level: 3,
-			className: 'tout__title',
+			isParallax: true,
+			dimRatio: 0,
+			backgroundColor: 'rgba(128, 173, 108, 0.25)'
 		},
-		[],
-	],
-	[
-		'core/image',
-		{
-			placeholder: __( 'Add image...', 'site-functionality' ),
-			className: 'tout__image',
-		},
-		[],
-	],
-	[
-		'core/paragraph',
-		{
-			placeholder: __( 'Add content...', 'site-functionality' ),
-			className: 'tout__content',
-		},
-		[],
+		[
+			[
+				'core/heading',
+				{
+					placeholder: __( 'Add Heading...', 'site-functionality' ),
+					level: 3,
+					className: 'tout__title',
+				},
+				[],
+			],
+			[
+				'core/image',
+				{
+					placeholder: __( 'Add image...', 'site-functionality' ),
+					className: 'tout__image',
+				},
+				[],
+			],
+			[
+				'core/paragraph',
+				{
+					placeholder: __( 'Add content...', 'site-functionality' ),
+					className: 'tout__content',
+				},
+				[],
+			],
+		]
 	],
 ];
 
 const ALLOWED_BLOCKS = [
+	'core/cover',
 	'core/group', 
 	'core/columns', 
-	'core/cover',
 	'getwid/section',
-	'nk/awb',
 	'core/heading',
 	'core/paragraph',
 	'core/image',
+	'core/quote',
 	'core/buttons',
 	'core/embed',
 	'core/video'

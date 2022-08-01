@@ -1,1 +1,1 @@
-import './background-image';
+import './parallax';
