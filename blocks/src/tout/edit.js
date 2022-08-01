@@ -1,24 +1,18 @@
 import {
 	BlockControls,
 	InnerBlocks,
-	InspectorControls,
 	useBlockProps,
 	__experimentalLinkControl as LinkControl,
 	__experimentalLinkControlSearchInput as LinkControlSearchInput,
 } from '@wordpress/block-editor';
 
 import {
-	Button,
-	ButtonGroup,
-	PanelBody,
-	PanelRow,
 	ToolbarButton,
 	Popover,
 } from '@wordpress/components';
 
 import { useEffect, useState, useRef } from '@wordpress/element';
-
-import { displayShortcut, isKeyboardEvent } from '@wordpress/keycodes';
+import { displayShortcut } from '@wordpress/keycodes';
 import { link, linkOff } from '@wordpress/icons';
 
 import { __ } from '@wordpress/i18n';
