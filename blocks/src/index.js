@@ -1,7 +1,7 @@
 import { registerBlockType, registerBlockCollection } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 
-// import './filters';
+import './filters';
 
 import * as pageHeader from './page-header';
 import * as pageNav from './page-nav';
