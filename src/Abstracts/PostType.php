@@ -22,6 +22,11 @@ abstract class PostType extends Base {
 	public const POST_TYPE = self::POST_TYPE;
 
 	/**
+	 * PostType template
+	 */
+	public const TEMPLATE = self::TEMPLATE;
+
+	/**
 	 * Post Type fields
 	 */
 	public const FIELDS = self::FIELDS;
@@ -112,6 +117,11 @@ abstract class PostType extends Base {
 			'show_in_rest'        => array_key_exists( 'show_in_rest', $this::POST_TYPE ) ? $this::POST_TYPE['show_in_rest'] : true,
 			'rest_base'           => array_key_exists( 'rest_base', $this::POST_TYPE ) ? $this::POST_TYPE['rest_base'] : $this::POST_TYPE['archive'],
 		);
+		
+		if( !empty( $this::TEMPLATE ) ) {
+			$args['template'] = $this::TEMPLATE;
+		}
+		
 		\register_post_type(
 			$this::POST_TYPE['id'],
 			\apply_filters( \get_class( $this ) . '\Args', $args )
