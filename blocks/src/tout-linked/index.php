@@ -37,9 +37,9 @@ function render( $attributes, $content, $block ) {
     }
 
     foreach ( $block->inner_blocks as $inner_block ) { 
-
-        $output .= $inner_block->render(); 
-        
+        \remove_filter( 'the_content', 'wpautop' );
+        $content .= \apply_filters( 'the_content', $inner_block->render() );
+        \add_filter( 'the_content', 'wpautop' );
     }
 
     if( isset( $attributes['url'] ) && $attributes['url'] ) {
