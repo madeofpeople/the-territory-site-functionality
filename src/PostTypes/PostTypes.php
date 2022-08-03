@@ -8,7 +8,6 @@
 namespace SiteFunctionality\PostTypes;
 
 use SiteFunctionality\Abstracts\Base;
-use SiteFunctionality\PostTypes\ShareCard;
 use SiteFunctionality\PostTypes\Press;
 use SiteFunctionality\PostTypes\Review;
 use SiteFunctionality\PostTypes\Social;
