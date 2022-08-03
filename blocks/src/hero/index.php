@@ -30,7 +30,9 @@ function render( $attributes, $content, $block ) {
     $content = '<div ' . $wrapper_attributes . '>';
 
     foreach ( $block->inner_blocks as $inner_block ) { 
-        $content .= $inner_block->render(); 
+        \remove_filter( 'the_content', 'wpautop' );
+        $content .= \apply_filters( 'the_content', $inner_block->render() );
+        \add_filter( 'the_content', 'wpautop' );
     }
 
     $content .= '</div>';
