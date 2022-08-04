@@ -119,7 +119,7 @@ function enqueue() {
 		if( ! \wp_script_is( $handle ) ) {
 			\wp_register_script(
 				$handle,
-				SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick.min.js',
+				SITE_CORE_DIR_URI . 'blocks/src/lib/slick-carousel/slick/slick.min.js',
 				array( 'jquery' ),
 				null,
 				true
@@ -135,13 +135,13 @@ function enqueue() {
 		);
 		\wp_register_style(
 			$handle . '-style',
-			SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick.css',
+			SITE_CORE_DIR_URI . 'blocks/src/lib/slick-carousel/slick/slick.css',
 			array(),
 			null
 		);
 		\wp_register_style(
 			$handle . '-theme',
-			SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick-theme.css',
+			SITE_CORE_DIR_URI . 'blocks/src/lib/slick-carousel/slick/slick-theme.css',
 			array( $handle . '-style' ),
 			null
 		);
