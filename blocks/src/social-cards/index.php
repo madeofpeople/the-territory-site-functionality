@@ -125,6 +125,7 @@ function enqueue() {
 				true
 			);
 		}
+
 		\wp_register_script(
 			$handle . '-init',
 			SITE_CORE_DIR_URI . 'blocks/src/social-cards/slider-init.js',
@@ -179,7 +180,7 @@ function render_block_social_sharing_link( $service, $post_id ) { // phpcs:ignor
 	$link  = '<li class="' . $class . '">';
 	$link .= '<a href="' . $url . '" aria-label="' . \esc_attr( $label ) . '" ' . $rel_target_attributes . ' class="wp-block-outermost-social-sharing-link-anchor">';
 	$link .= $icon;
-    $link .= '<span class="wp-block-outermost-social-sharing-link-label' . ( $show_labels ? '' : ' screen-reader-text' ) . '">';
+	$link .= '<span class="wp-block-outermost-social-sharing-link-label' . ( $show_labels ? '' : ' screen-reader-text' ) . '">';
 	$link .= esc_html( $label );
 	$link .= '</span></a></li>';
 
