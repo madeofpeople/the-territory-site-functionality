@@ -125,6 +125,22 @@ function enqueue() {
 				true
 			);
 		}
+		if( ! \wp_style_is( $handle ) ) {
+			\wp_register_style(
+				$handle,
+				SITE_CORE_DIR_URI . 'blocks/src/lib/slick-carousel/slick/slick.css',
+				array(),
+				null
+			);
+		}
+		if( ! \wp_style_is( $handle . '-theme' ) ) {
+			\wp_register_style(
+				$handle . '-theme',
+				SITE_CORE_DIR_URI . 'blocks/src/lib/slick-carousel/slick/slick-theme.css',
+				array( $handle ),
+				null
+			);
+		}
 
 		\wp_register_script(
 			$handle . '-init',
@@ -133,23 +149,11 @@ function enqueue() {
 			null,
 			true
 		);
-		\wp_register_style(
-			$handle . '-style',
-			SITE_CORE_DIR_URI . 'blocks/src/lib/slick-carousel/slick/slick.css',
-			array(),
-			null
-		);
-		\wp_register_style(
-			$handle . '-theme',
-			SITE_CORE_DIR_URI . 'blocks/src/lib/slick-carousel/slick/slick-theme.css',
-			array( $handle . '-style' ),
-			null
-		);
 
 		\wp_enqueue_script( $handle );
 		\wp_enqueue_script( $handle . '-init' );
-		\wp_enqueue_style( $handle . '-style' );
-		// \wp_enqueue_style( $handle . '-theme' );
+		\wp_enqueue_style( $handle );
+		\wp_enqueue_style( $handle . '-theme' );
 	}
 }
 \add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue' );
