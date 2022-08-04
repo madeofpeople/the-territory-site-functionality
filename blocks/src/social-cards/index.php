@@ -132,18 +132,16 @@ function enqueue() {
 			null,
 			true
 		);
-
-		\wp_register_style(
-			$handle . '-theme',
-			SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick-theme.css',
-			array( $handle . '-style' ),
-			null
-		);
-
 		\wp_register_style(
 			$handle . '-style',
 			SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick.css',
 			array(),
+			null
+		);
+		\wp_register_style(
+			$handle . '-theme',
+			SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick-theme.css',
+			array( $handle . '-style' ),
 			null
 		);
 
