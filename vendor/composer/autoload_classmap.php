@@ -17,7 +17,7 @@ return array(
     'SiteFunctionality\\PostTypes\\PostTypes' => $baseDir . '/src/PostTypes/PostTypes.php',
     'SiteFunctionality\\PostTypes\\Press' => $baseDir . '/src/PostTypes/Press.php',
     'SiteFunctionality\\PostTypes\\Review' => $baseDir . '/src/PostTypes/Review.php',
-    'SiteFunctionality\\PostTypes\\ShareCard' => $baseDir . '/src/PostTypes/ShareCard.php',
+    'SiteFunctionality\\PostTypes\\Social' => $baseDir . '/src/PostTypes/Social.php',
     'SiteFunctionality\\Taxonomies\\Taxonomies' => $baseDir . '/src/Taxonomies/Taxonomies.php',
     'SiteFunctionality\\Util\\Comments' => $baseDir . '/src/Util/Comments.php',
     'SiteFunctionality\\Util\\Filters' => $baseDir . '/src/Util/Filters.php',
