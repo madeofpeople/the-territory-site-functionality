@@ -111,8 +111,9 @@ abstract class PostType extends Base {
 			'capability_type'     => array_key_exists( 'capability', $this::POST_TYPE ) ? $this::POST_TYPE['capability'] : 'post',
 			'show_in_rest'        => array_key_exists( 'show_in_rest', $this::POST_TYPE ) ? $this::POST_TYPE['show_in_rest'] : true,
 			'rest_base'           => array_key_exists( 'rest_base', $this::POST_TYPE ) ? $this::POST_TYPE['rest_base'] : $this::POST_TYPE['archive'],
+			'template_lock'       => array_key_exists( 'template_lock', $this::POST_TYPE ) ? $this::POST_TYPE['template_lock'] : false,
 		);
-		if( array_key_exists( 'template', $this::POST_TYPE ) && ! empty( $this::POST_TYPE['template'] ) ) {
+		if ( array_key_exists( 'template', $this::POST_TYPE ) && ! empty( $this::POST_TYPE['template'] ) ) {
 			$args['template'] = $this::POST_TYPE['template'];
 		}
 
