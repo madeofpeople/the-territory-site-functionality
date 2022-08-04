@@ -52,7 +52,7 @@ function render( $attributes, $content, $block ) {
 
 			if ( $images = \get_post_meta( $post_id, 'images', true ) ) {
 				// $output .= sprintf( '<ul class="image-group" data-slick=\'%s\'>', '{"slidesToShow": 1, "slidesToScroll": 1}' );
-				$output .= '<ul class="image-groups">';
+				$output .= '<ul class="image-group">';
 				foreach ( $images as $image_id ) {
 					$output .= sprintf( '<li id="image-%s">%s</li>', (int) $image_id, \wp_get_attachment_image( $image_id, 'full' ) );
 				}
