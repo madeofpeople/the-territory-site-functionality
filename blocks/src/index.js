@@ -5,12 +5,14 @@ import './filters';
 
 import * as pageHeader from './page-header';
 import * as pageNav from './page-nav';
+import * as socialCards from './social-cards';
 import * as tout from './tout';
 import * as toutLinked from './tout-linked';
 
 const blocks = [
 	pageHeader,
 	pageNav,
+	socialCards,
 	tout,
 	toutLinked
 ];

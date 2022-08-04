@@ -1,0 +1,89 @@
+{
+    "apiVersion": 2,
+    "version": "1.0.0",
+    "textdomain": "site-functionality",
+    "name": "site-functionality/social-cards",
+    "title": "Social Cards",
+    "category": "media",
+    "collection": "site-functionality",
+    "description": "Display a social cards on page",
+    "keywords": [
+        "share",
+        "social"
+    ],
+    "attributes": {
+        "postsToShow": {
+            "type": "number",
+            "default": 24
+        },
+        "postType": {
+			"type": "string",
+            "default": "social"
+		},
+		"postLayout": {
+			"type": "string",
+            "default": "grid"
+        },
+        "columns": {
+			"type": "number",
+            "default": 4
+        },
+        "className": {
+            "type": "string",
+            "default": "tout"
+        }
+    },
+    "supports": {
+        "align": true,
+        "anchor": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": false,
+            "link": false
+        },
+        "customClassName": true,
+        "defaultStylePicker": false,
+        "__experimentalLayout": false,
+        "__experimentalStyle": false,
+        "__experimentalBorder": false
+    },
+    "example" : {
+        "attributes": {
+            "className": "tout"
+        },
+        "innerBlocks": [
+            {
+                "name": "core/cover",
+                "attributes": {
+                    "isParallax": true,
+                    "dimRatio": 0,
+                    "url": "https://images.unsplash.com/photo-1520991323542-c159d7282b9f",
+                    "backgroundColor": "rgba(128, 173, 108, 0.25)"
+                },
+                "innerBlocks": [
+                    {
+                        "name": "core/heading",
+                        "attributes": {
+                            "level": 2,
+                            "className": "tout__heading",
+                            "textColor": "white",
+                            "content": "Indigenous-led Monitoring and Surveillance"
+                        }
+                    },
+                    {
+                        "name": "core/paragraph",
+                        "attributes": {
+                            "className": "tout__content",
+                            "textColor": "white",
+                            "content": "We, are calling on governments and businesses to work together to finance and empower indigenous-led monitoring for deforestation-free supply chains."
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "style": "file:../../build/style-index.css",
+    "editorScript": "site-functionality",
+	"editorStyle": "file:../../build/index.css"
+}

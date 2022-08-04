@@ -36,7 +36,7 @@ class ComposerStaticInit25d12fc82d7fed0acadeb34ab70c8d94
         'SiteFunctionality\\PostTypes\\PostTypes' => __DIR__ . '/../..' . '/src/PostTypes/PostTypes.php',
         'SiteFunctionality\\PostTypes\\Press' => __DIR__ . '/../..' . '/src/PostTypes/Press.php',
         'SiteFunctionality\\PostTypes\\Review' => __DIR__ . '/../..' . '/src/PostTypes/Review.php',
-        'SiteFunctionality\\PostTypes\\ShareCard' => __DIR__ . '/../..' . '/src/PostTypes/ShareCard.php',
+        'SiteFunctionality\\PostTypes\\Social' => __DIR__ . '/../..' . '/src/PostTypes/Social.php',
         'SiteFunctionality\\Taxonomies\\Taxonomies' => __DIR__ . '/../..' . '/src/Taxonomies/Taxonomies.php',
         'SiteFunctionality\\Util\\Comments' => __DIR__ . '/../..' . '/src/Util/Comments.php',
         'SiteFunctionality\\Util\\Filters' => __DIR__ . '/../..' . '/src/Util/Filters.php',
