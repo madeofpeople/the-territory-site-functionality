@@ -23,73 +23,73 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function render( $attributes, $content, $block ) {
-    $output = '';
-    $wrapper_attributes = \get_block_wrapper_attributes(
-        array()
-    );
+	$output             = '';
+	$wrapper_attributes = \get_block_wrapper_attributes(
+		array()
+	);
 
-	$args = array(
+	$args  = array(
 		'post_type'      => Social::POST_TYPE['id'],
 		'posts_per_page' => 24,
 		'orderby'        => 'menu_order date',
 	);
-    $query = new \WP_Query( $args );
+	$query = new \WP_Query( $args );
 
-    
-    if( $query->have_posts() ) :
+	if ( $query->have_posts() ) :
 
-        $output .= '<div ' . $wrapper_attributes . '>';
-        
-        while( $query->have_posts() ) : $query->the_post();
+		$output .= '<div ' . $wrapper_attributes . '>';
 
+		while ( $query->have_posts() ) :
+			$query->the_post();
 
-            $post_id =  $query->post->ID;
-            $services = array(
-                'twitter',
-                'facebook'
-            );
+			$post_id  = $query->post->ID;
+			$services = array(
+				'twitter',
+				'facebook',
+			);
 
-            $output .= '<article id="post-' . $post_id . '" class="social-post">';
-        
-                if ( $images = \get_post_meta( $post_id, 'images', true ) ) {
-                    $output .= '<ul class="image-list">';
-                    foreach ( $images as $image_id ) {
-                        $output .= sprintf( '<li id="image-%s">%s</li>', (int) $image_id, \wp_get_attachment_image( $image_id, 'full' ) );
-                    }
-                    $output .= '</ul><!--.image-list-->';
-                }
+			$output .= '<article id="post-' . $post_id . '" class="social-post">';
 
-                $output .= '<ul class="wp-block-outermost-social-sharing is-style-logos-only is-vertical is-flex">';
+			if ( $images = \get_post_meta( $post_id, 'images', true ) ) {
+				// $output .= sprintf( '<ul class="image-group" data-slick=\'%s\'>', '{"slidesToShow": 1, "slidesToScroll": 1}' );
+				$output .= '<ul class="image-groups">';
+				foreach ( $images as $image_id ) {
+					$output .= sprintf( '<li id="image-%s">%s</li>', (int) $image_id, \wp_get_attachment_image( $image_id, 'full' ) );
+				}
+				$output .= '</ul><!--.image-group-->';
+			}
 
-                if ( ( $link = \get_post_meta( $post_id, 'link', true ) ) && ( $message = \get_post_meta( $post_id, 'message', true ) ) ) {
-                    foreach( $services as $service ) :
+				$output .= '<ul class="wp-block-outermost-social-sharing is-style-logos-only is-vertical is-flex">';
 
-                        $output .= render_block_social_sharing_link( $service, $post_id );
+			if ( ( $link = \get_post_meta( $post_id, 'link', true ) ) && ( $message = \get_post_meta( $post_id, 'message', true ) ) ) {
+				foreach ( $services as $service ) :
 
-                    endforeach;
-                }
+					$output .= render_block_social_sharing_link( $service, $post_id );
 
-                if( $instagram = \get_post_meta( $post_id, 'instagram', true ) ) {
-                    $output .= render_block_social_sharing_link( 'instagram', $post_id );
-                }
+					endforeach;
+			}
 
-                $output .= '</ul><!--.wp-block-social-links-->';
+			if ( $instagram = \get_post_meta( $post_id, 'instagram', true ) ) {
+				$output .= render_block_social_sharing_link( 'instagram', $post_id );
+			}
 
-                if( $file_id = \get_post_meta( $post_id, 'file', true ) ) :
-                    $output .= '<div class="wp-block-file">';
+				$output .= '</ul><!--.wp-block-social-links-->';
 
-                    $output .= sprintf( '<a href="%s" class="wp-block-file__button" download="" aria-describedby="wp-block-file--media-%s">%s</a>', \esc_url( \wp_get_attachment_url( $file_id ) ), $file_id, \esc_html__( 'Download', 'site-functionality' ) );
+			if ( $file_id = \get_post_meta( $post_id, 'file', true ) ) :
+				$output .= '<div class="wp-block-file">';
 
-                    $output .= '</div>';
-                endif;
+				$output .= sprintf( '<a href="%s" class="wp-block-file__button" download="" aria-describedby="wp-block-file--media-%s">%s</a>', \esc_url( \wp_get_attachment_url( $file_id ) ), $file_id, \esc_html__( 'Download', 'site-functionality' ) );
 
-            $output .= '</article><!--.social-post-->';
+				$output .= '</div>';
+				endif;
 
-        endwhile;
+			$output .= '</article><!--.social-post-->';
 
-        $output .= '</div>';
+		endwhile;
 
-    endif;
+		$output .= '</div>';
+
+	endif;
 
 	return $output;
 }
