@@ -84,6 +84,8 @@ class Social extends PostType {
 	public function init() {
 		parent::init();
 		\add_action( 'acf/init', array( $this, 'register_fields' ) );
+		// \add_filter( 'the_title', array( $this, 'filter_title' ), 10, 2 );
+		// \add_filter( 'post_type_link', array( $this, 'filter_link' ), 10, 2 );
 	}
 
 	/**
