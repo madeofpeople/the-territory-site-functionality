@@ -111,4 +111,40 @@ class Social extends PostType {
 		return $vars;
 	}
 
+	/**
+	 * Modify title
+	 *
+	 * @param string $title
+	 * @param int    $id
+	 * @return string $title
+	 */
+	public function filter_title( $title, $id = null ) : string {
+		if ( \is_admin() || self::POST_TYPE['id'] !== \get_post_type( $id ) ) {
+			return $title;
+		}
+
+		if ( $description = \get_post_meta( $id, '_genesis_title', true ) ) {
+			$title = $description;
+		}
+		return $title;
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param string $url
+	 * @param obj    $post
+	 * @return string $url
+	 */
+	public function filter_link( $url, $post ) : string {
+		if ( \is_admin() || self::POST_TYPE['id'] !== \get_post_type( $post->ID ) ) {
+			return $url;
+		}
+
+		if ( $link = \get_post_meta( $post->ID, '_genesis_canonical_uri', true ) ) {
+			$url = $link;
+		}
+		return $url;
+	}
+
 }
