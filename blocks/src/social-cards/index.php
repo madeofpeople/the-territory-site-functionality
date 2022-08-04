@@ -108,6 +108,54 @@ function register() {
 add_action( 'init', __NAMESPACE__ . '\register' );
 
 /**
+ * Undocumented function
+ *
+ * @return void
+ */
+function enqueue() {
+	$handle = 'slick';
+	if ( is_singular() ) {
+		$post_id = get_the_ID();
+		if( ! \wp_script_is( $handle ) ) {
+			\wp_register_script(
+				$handle,
+				SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick.min.js',
+				array( 'jquery' ),
+				null,
+				true
+			);
+		}
+		\wp_register_script(
+			$handle . '-init',
+			SITE_CORE_DIR_URI . 'blocks/src/social-cards/slider-init.js',
+			array( $handle ),
+			null,
+			true
+		);
+
+		\wp_register_style(
+			$handle . '-theme',
+			SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick-theme.css',
+			array( $handle . '-style' ),
+			null
+		);
+
+		\wp_register_style(
+			$handle . '-style',
+			SITE_CORE_DIR_URI . 'blocks/node_modules/slick-carousel/slick/slick.css',
+			array(),
+			null
+		);
+
+		\wp_enqueue_script( $handle );
+		\wp_enqueue_script( $handle . '-init' );
+		\wp_enqueue_style( $handle . '-style' );
+		// \wp_enqueue_style( $handle . '-theme' );
+	}
+}
+\add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue' );
+
+/**
  * Renders the `outermost/social-sharing-link` block on server.
  *
  * @param Array    $attributes The block attributes.
