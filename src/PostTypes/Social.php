@@ -132,7 +132,7 @@ class Social extends PostType {
 						'name'              => 'message',
 						'type'              => 'textarea',
 						'instructions'      => __( 'Text to add to share message.', 'site-functionality' ),
-						'required'          => 1,
+						'required'          => 0,
 						'conditional_logic' => 0,
 						'wrapper'           => array(
 							'width' => '',
@@ -151,7 +151,7 @@ class Social extends PostType {
 						'name'              => 'link',
 						'type'              => 'url',
 						'instructions'      => __( 'URL to add to share message', 'site-functionality' ),
-						'required'          => 1,
+						'required'          => 0,
 						'conditional_logic' => 0,
 						'wrapper'           => array(
 							'width' => '',
@@ -180,7 +180,7 @@ class Social extends PostType {
 					array(
 						'key'               => 'field_social_file',
 						'label'             => __( 'File', 'site-functionality' ),
-						'name'              => 'file',
+						'name'              => 'download',
 						'type'              => 'file',
 						'instructions'      => __( 'Compressed file that can be downloaded by users.', 'site-functionality' ),
 						'required'          => 0,
