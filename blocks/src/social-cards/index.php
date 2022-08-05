@@ -52,37 +52,44 @@ function render( $attributes, $content, $block ) {
 				'download'
 			);
 
-			$output .= '<article id="post-' . $post_id . '" class="social-post">';
+			$images = \get_post_meta( $post_id, 'images', true );
+			$extra_classname = $images && count( $images ) > 1  ? ' has-multiple-images' : '';
 
-				if ( $images = \get_post_meta( $post_id, 'images', true ) ) {
-					$output .= '<ul class="image-group">';
-					foreach ( $images as $image_id ) {
-						$output .= sprintf( '<li id="image-%s">%s</li>', (int) $image_id, \wp_get_attachment_image( $image_id, 'full' ) );
-					}
-					$output .= '</ul><!--.image-group-->';
-				}
+			if( !empty( $images ) ) :
 
-				$output .= '<div class="share-actions">';
+				$output .= '<article id="post-' . $post_id . '" class="social-post' . $extra_classname . '">';
 
-					$output .= '<ul class="wp-block-outermost-social-sharing is-style-logos-only">';
-
-					if( \get_post_meta( $post_id, 'link', true ) || \get_post_meta( $post_id, 'message', true ) ) {
-						foreach ( $share_services as $service ) :
-							$output .= render_block_social_sharing_link( $service, $post_id );
-						endforeach;
-					}
-
-					foreach ( $services as $service ) :
-						if( \get_post_meta( $post_id, $service, true ) ) {
-							$output .= render_block_social_sharing_link( $service, $post_id );
+					if ( $images ) {
+						$output .= '<ul class="image-group">';
+						foreach ( $images as $image_id ) {
+							$output .= sprintf( '<li id="image-%s">%s</li>', (int) $image_id, \wp_get_attachment_image( $image_id, 'full' ) );
 						}
-					endforeach;
+						$output .= '</ul><!--.image-group-->';
+					}
 
-					$output .= '</ul><!--.wp-block-social-links-->';
+					$output .= '<div class="share-actions">';
 
-				$output .= '</div><!--.share-actions-->';
+						$output .= '<ul class="wp-block-outermost-social-sharing is-style-logos-only">';
+
+						if( \get_post_meta( $post_id, 'link', true ) || \get_post_meta( $post_id, 'message', true ) ) {
+							foreach ( $share_services as $service ) :
+								$output .= render_block_social_sharing_link( $service, $post_id );
+							endforeach;
+						}
+
+						foreach ( $services as $service ) :
+							if( \get_post_meta( $post_id, $service, true ) ) {
+								$output .= render_block_social_sharing_link( $service, $post_id );
+							}
+						endforeach;
+
+						$output .= '</ul><!--.wp-block-social-links-->';
+
+					$output .= '</div><!--.share-actions-->';
 
 				$output .= '</article><!--.social-post-->';
+
+			endif;
 
 		endwhile;
 
