@@ -52,8 +52,8 @@ function render( $attributes, $content, $block ) {
 				'download'
 			);
 
-			$output .= '<article id="post-' . $post_id . '" class="social-post">';
 			$images = \get_post_meta( $post_id, 'images', true );
+			$extra_classname = $images && count( $images ) > 1  ? ' has-multiple-images' : '';
 
 				if ( $images = \get_post_meta( $post_id, 'images', true ) ) {
 					$output .= '<ul class="image-group">';
