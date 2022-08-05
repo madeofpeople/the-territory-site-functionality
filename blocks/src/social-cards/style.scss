@@ -4,17 +4,4 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-site-functionality-social-cards {
-    .wp-block-social-links {
-        &.is-flex {
-            display: flex;
-            gap: 0.5em;
-            flex-wrap: wrap;
-        }
-
-        &.is-vertical {
-            flex-direction: column;
-        }
-    }
-
-}
+.wp-block-site-functionality-social-cards {}
