@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
 import classNames from 'classnames';
 
 //  Import CSS.
-import './editor.scss';
-import './style.scss';
+// import './editor.scss';
+// import './style.scss';
 
 const BlockPlaceholder = () => <Placeholder icon={ external } label={ __( 'Social Cards Block', 'site-functionality' ) } />;
 
