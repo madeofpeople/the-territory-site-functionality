@@ -114,3 +114,20 @@ function register_block_category( $block_categories, $block_editor_context ) {
 	);
 }
 \add_filter( 'block_categories_all', __NAMESPACE__ . '\register_block_category', 9, 2 );
+
+/**
+ * Remove wpautop from blocks
+ * 
+ * @link https://developer.wordpress.org/reference/hooks/render_block/
+ * @link https://developer.wordpress.org/reference/functions/wpautop/
+ *
+ * @param string $block_content
+ * @param array $block
+ * @return string $block_content
+ */
+function remove_wpautop( $block_content, $block ) {
+    \remove_filter( 'the_content', 'wpautop' );
+
+    return $block_content;
+}
+\add_filter( 'render_block', __NAMESPACE__ . '\remove_wpautop', 10, 2 );
