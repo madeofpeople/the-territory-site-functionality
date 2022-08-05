@@ -53,6 +53,7 @@ function render( $attributes, $content, $block ) {
 			);
 
 			$output .= '<article id="post-' . $post_id . '" class="social-post">';
+			$images = \get_post_meta( $post_id, 'images', true );
 
 				if ( $images = \get_post_meta( $post_id, 'images', true ) ) {
 					$output .= '<ul class="image-group">';
