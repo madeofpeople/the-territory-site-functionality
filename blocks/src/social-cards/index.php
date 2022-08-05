@@ -64,6 +64,7 @@ function render( $attributes, $content, $block ) {
 				}
 
 				$output .= '<div class="share-actions">';
+			if( !empty( $images ) ) :
 
 					$output .= '<ul class="wp-block-outermost-social-sharing is-style-logos-only">';
 
@@ -84,6 +85,8 @@ function render( $attributes, $content, $block ) {
 				$output .= '</div><!--.share-actions-->';
 
 				$output .= '</article><!--.social-post-->';
+
+			endif;
 
 		endwhile;
 
