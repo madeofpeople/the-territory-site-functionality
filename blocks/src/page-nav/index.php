@@ -24,17 +24,17 @@ function render( $attributes, $content, $block ) {
     $args = array();
     $wrapper_attributes = \get_block_wrapper_attributes( $args );
 
-    $content = '<div ' . $wrapper_attributes . '>';
+    $output = '<div ' . $wrapper_attributes . '>';
 
     foreach ( $block->inner_blocks as $inner_block ) { 
         \remove_filter( 'the_content', 'wpautop' );
-        $content .= \apply_filters( 'the_content', $inner_block->render() );
         \add_filter( 'the_content', 'wpautop' );
+        $output .= \apply_filters( 'the_content', $inner_block->render() );
     }
 
-    $content .= '</div>';
+    $output .= '</div>';
 
-    return $content;
+    return $output;
 }
 
 /**
