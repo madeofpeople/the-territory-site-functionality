@@ -29,8 +29,6 @@ function render( $attributes, $content, $block ) {
     $output = '<div ' . $wrapper_attributes . '>';
 
     foreach ( $block->inner_blocks as $inner_block ) { 
-        \remove_filter( 'the_content', 'wpautop' );
-        \add_filter( 'the_content', 'wpautop' );
         $output .= \apply_filters( 'the_content', $inner_block->render() );
     }
 
