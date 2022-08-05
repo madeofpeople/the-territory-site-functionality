@@ -43,47 +43,46 @@ function render( $attributes, $content, $block ) {
 			$query->the_post();
 
 			$post_id  = $query->post->ID;
-			$services = array(
+			$share_services = array(
 				'twitter',
 				'facebook',
+			);
+			$services = array(
+				'instagram',
+				'download'
 			);
 
 			$output .= '<article id="post-' . $post_id . '" class="social-post">';
 
-			if ( $images = \get_post_meta( $post_id, 'images', true ) ) {
-				// $output .= sprintf( '<ul class="image-group" data-slick=\'%s\'>', '{"slidesToShow": 1, "slidesToScroll": 1}' );
-				$output .= '<ul class="image-group">';
-				foreach ( $images as $image_id ) {
-					$output .= sprintf( '<li id="image-%s">%s</li>', (int) $image_id, \wp_get_attachment_image( $image_id, 'full' ) );
+				if ( $images = \get_post_meta( $post_id, 'images', true ) ) {
+					$output .= '<ul class="image-group">';
+					foreach ( $images as $image_id ) {
+						$output .= sprintf( '<li id="image-%s">%s</li>', (int) $image_id, \wp_get_attachment_image( $image_id, 'full' ) );
+					}
+					$output .= '</ul><!--.image-group-->';
 				}
-				$output .= '</ul><!--.image-group-->';
-			}
 
-				$output .= '<ul class="wp-block-outermost-social-sharing is-style-logos-only is-vertical is-flex">';
+				$output .= '<div class="share-actions">';
 
-			if ( ( $link = \get_post_meta( $post_id, 'link', true ) ) && ( $message = \get_post_meta( $post_id, 'message', true ) ) ) {
-				foreach ( $services as $service ) :
+					$output .= '<ul class="wp-block-outermost-social-sharing is-style-logos-only">';
 
-					$output .= render_block_social_sharing_link( $service, $post_id );
+					if( \get_post_meta( $post_id, 'link', true ) || \get_post_meta( $post_id, 'message', true ) ) {
+						foreach ( $share_services as $service ) :
+							$output .= render_block_social_sharing_link( $service, $post_id );
+						endforeach;
+					}
 
+					foreach ( $services as $service ) :
+						if( \get_post_meta( $post_id, $service, true ) ) {
+							$output .= render_block_social_sharing_link( $service, $post_id );
+						}
 					endforeach;
-			}
 
-			if ( $instagram = \get_post_meta( $post_id, 'instagram', true ) ) {
-				$output .= render_block_social_sharing_link( 'instagram', $post_id );
-			}
+					$output .= '</ul><!--.wp-block-social-links-->';
 
-				$output .= '</ul><!--.wp-block-social-links-->';
+				$output .= '</div><!--.share-actions-->';
 
-			if ( $file_id = \get_post_meta( $post_id, 'file', true ) ) :
-				$output .= '<div class="wp-block-file">';
-
-				$output .= sprintf( '<a href="%s" class="wp-block-file__button" download="" aria-describedby="wp-block-file--media-%s">%s</a>', \esc_url( \wp_get_attachment_url( $file_id ) ), $file_id, \esc_html__( 'Download', 'site-functionality' ) );
-
-				$output .= '</div>';
-				endif;
-
-			$output .= '</article><!--.social-post-->';
+				$output .= '</article><!--.social-post-->';
 
 		endwhile;
 
