@@ -37,63 +37,47 @@ function render( $attributes, $content, $block ) {
 
 	if ( $query->have_posts() ) :
 
-		$output .= '<div ' . $wrapper_attributes . '>';
+		$wrapper_attributes = \get_block_wrapper_attributes( array() );
+		$loader_params      = \SiteFunctionality\Blocks\get_template_params();
+		$template_loader    = new TemplateLoader( $loader_params );
 
-		while ( $query->have_posts() ) :
-			$query->the_post();
+		ob_start();
+		?>
 
-			$post_id        = $query->post->ID;
-			$share_services = array(
-				'twitter',
-				'facebook',
-			);
-			$services       = array(
-				'instagram',
-				'download',
-			);
+		<div <?php echo $wrapper_attributes; ?>>
 
-			$images          = \get_post_meta( $post_id, 'images', true );
-			$extra_classname = $images && count( $images ) > 1 ? ' has-multiple-images' : '';
+			<?php
+			while ( $query->have_posts() ) :
+				$query->the_post();
 
-			if ( ! empty( $images ) ) :
+				$post_id        = $query->post->ID;
+				$share_services = array(
+					'twitter',
+					'facebook',
+				);
+				$services       = array(
+					'instagram',
+					'download',
+				);
 
-				$output .= '<article id="post-' . $post_id . '" class="social-post' . $extra_classname . '">';
+				$images          = \get_post_meta( $post_id, 'images', true );
+				$extra_classname = $images && count( $images ) > 1 ? ' has-multiple-images' : '';
 
-				if ( $images ) {
-					$output .= '<ul class="image-group">';
-					foreach ( $images as $image_id ) {
-						$output .= sprintf( '<li id="image-%s">%s</li>', (int) $image_id, \wp_get_attachment_image( $image_id, 'full' ) );
-					}
-					$output .= '</ul><!--.image-group-->';
-				}
+				$template_loader
+					->setTemplateData(
+						array(
+							'post' => $query->post,
+						)
+					)
+					->getTemplatePart( 'social' );
 
-					$output .= '<div class="share-actions">';
+			endwhile;
+			?>
 
-						$output .= '<ul class="wp-block-outermost-social-sharing is-style-logos-only">';
+		</div>
 
-				if ( \get_post_meta( $post_id, 'link', true ) || \get_post_meta( $post_id, 'message', true ) ) {
-					foreach ( $share_services as $service ) :
-						$output .= render_block_social_sharing_link( $service, $post_id );
-					endforeach;
-				}
-
-				foreach ( $services as $service ) :
-					if ( \get_post_meta( $post_id, $service, true ) ) {
-						$output .= render_block_social_sharing_link( $service, $post_id );
-					}
-						endforeach;
-
-						$output .= '</ul><!--.wp-block-social-links-->';
-
-					$output .= '</div><!--.share-actions-->';
-
-				$output .= '</article><!--.social-post-->';
-
-			endif;
-
-		endwhile;
-
-		$output .= '</div>';
+		<?php
+		$output = ob_get_clean();
 
 	endif;
 
@@ -176,6 +160,7 @@ function enqueue() {
 function render_block_social_sharing_link( $service, $post_id ) { // phpcs:ignore
 	$url         = social_sharing_link_get_url( $service );
 	$label       = social_sharing_link_get_label( $service );
+	$ga_category = \esc_attr( 'Share Cards' );
 	$show_labels = false;
 
 	$rel_target_attributes = '';
