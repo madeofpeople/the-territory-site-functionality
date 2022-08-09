@@ -251,14 +251,13 @@ function social_sharing_link_services( $service = '', $post_id = null ) {
 		$thumbnail = null;
 	}
 
-	$permalink  = rawurlencode( \get_post_meta( $post_id, 'link', true ) );
-	$title      = rawurlencode( \get_post_meta( $post_id, 'message', true ) );
-	$image      = rawurlencode( \esc_url( $thumbnail ) );
-	$separator  = '%20&mdash;%20';
+	$permalink          = rawurlencode( \get_post_meta( $post_id, 'link', true ) );
 	$post_title         = \get_the_title( $post_id );
 	$post_title_encoded = rawurlencode( $post_title );
 	$message            = esc_attr( \get_post_meta( $post_id, 'message', true ) );
 	$message_encoded    = rawurlencode( $message );
+	$image              = rawurlencode( \esc_url( $thumbnail ) );
+	$separator          = '%20&mdash;%20';
 
 	$services_data = array(
 		'facebook'  => array(
