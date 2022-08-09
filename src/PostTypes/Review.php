@@ -105,7 +105,7 @@ class Review extends PostType {
 	}
 
 	/**
-	 * Register Meta 
+	 * Register Meta
 	 *
 	 * @return void
 	 */
