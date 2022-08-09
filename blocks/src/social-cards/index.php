@@ -173,7 +173,7 @@ function render_block_social_sharing_link( $service, $post_id ) { // phpcs:ignor
 	$class = 'outermost-social-sharing-link outermost-social-sharing-link-' . $service;
 
 	$link  = '<li class="' . $class . '">';
-	$link .= '<a href="' . $url . '" data-vars-ga-category="Share Cards" aria-label="' . \esc_attr( $label ) . '" ' . $rel_target_attributes . ' class="wp-block-outermost-social-sharing-link-anchor">';
+	$link .= '<a href="' . $url . '" data-vars-ga-category="' . $ga_category . '" aria-label="' . \esc_attr( $label ) . '" ' . $rel_target_attributes . ' class="wp-block-outermost-social-sharing-link-anchor">';
 	$link .= $icon;
 	$link .= '<span class="wp-block-outermost-social-sharing-link-label' . ( $show_labels ? '' : ' screen-reader-text' ) . '">';
 	$link .= esc_html( $label );
