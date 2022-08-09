@@ -19,7 +19,7 @@ const TEMPLATE_PARAMS = array(
 	'filter_prefix'             => 'site_functionality',
 	'plugin_directory'          => SITE_CORE_DIR,
 	'plugin_template_directory' => 'blocks/src/templates',
-	'theme_template_directory'  => 'template-parts/components',
+	'theme_template_directory'  => 'template-parts/blocks',
 );
 
 function get_template_params() {
