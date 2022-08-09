@@ -31,41 +31,6 @@ class Social extends PostType {
 		'with_front'  => false,
 		'rest_base'   => 'social',
 		'supports'    => array( 'title', 'thumbnail', 'custom-fields', 'external-links' ),
-		// 'template'      => array(
-		// array(
-		// 'core/paragraph',
-		// array(
-		// 'placeholder' => 'Add description...',
-		// 'anchor'      => 'description',
-		// 'className'   => 'description',
-		// ),
-		// ),
-		// array(
-		// 'outermost/social-sharing',
-		// array(
-		// 'className' => 'is-style-logos-only',
-		// 'layout'    => array(
-		// 'type'        => 'flex',
-		// 'orientation' => 'vertical',
-		// ),
-		// ),
-		// array(
-		// array(
-		// 'outermost/social-sharing-link',
-		// array(
-		// 'service' => 'twitter',
-		// ),
-		// ),
-		// array(
-		// 'outermost/social-sharing-link',
-		// array(
-		// 'service' => 'facebook',
-		// ),
-		// ),
-		// ),
-		// ),
-		// ),
-		// 'template_lock' => true,
 	);
 
 	/**
