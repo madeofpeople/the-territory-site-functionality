@@ -370,5 +370,5 @@ function social_sharing_link_services( $service = '', $post_id = null ) {
 		return $services_data[ $service ];
 	}
 
-	return $services_data;
+	return \apply_filters( 'site_functionality/social_block/services', $services_data, $service, $post_id );
 }
