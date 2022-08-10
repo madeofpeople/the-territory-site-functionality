@@ -20,11 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function render( $attributes, $content, $block ) {
-    $wrapper_attributes = \get_block_wrapper_attributes(
-        array(
-            'class' =>  'tout linked'
-        )
+    $args = array(
+        'class' =>  'tout linked'
     );
+    if( isset( $attributes['anchor'] ) && $attributes['anchor'] ) {
+        $args['id'] = \esc_attr( $attributes['anchor'] );
+    }
+    $wrapper_attributes = \get_block_wrapper_attributes( $args );
 
     $output = '<div ' . $wrapper_attributes . '>';
 
