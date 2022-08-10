@@ -25,6 +25,9 @@
         "className": {
             "type": "string",
             "default": "tout"
+        },
+        "anchor": {
+			"type": "string"
         }
     },
     "supports": {

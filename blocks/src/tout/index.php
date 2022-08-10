@@ -20,15 +20,20 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function render( $attributes, $content, $block ) {
-    $wrapper_attributes = \get_block_wrapper_attributes();
+    $args = array(
+        'class' =>  'tout linked'
+    );
+    if( isset( $attributes['anchor'] ) && $attributes['anchor'] ) {
+        $args['id'] = \esc_attr( $attributes['anchor'] );
+    }
+    $wrapper_attributes = \get_block_wrapper_attributes( $args );
 
     $output = '<div ' . $wrapper_attributes . '>';
 
     if( isset( $attributes['url'] ) && $attributes['url'] ) {
-        $output .= sprintf( '<a href="%1$s"%2$s%3$s class="tout__link">', 
+        $output .= sprintf( '<a href="%1$s"%2$s class="tout__link">', 
             \esc_url( $attributes['url'] ), 
-            ( isset( $attributes['linkTarget'] ) && $attributes['linkTarget'] ) ? ' target="' . $attributes['linkTarget'] . '"' : '',
-            ( isset( $attributes['linkTarget'] ) && $attributes['linkTarget'] ) ? ' rel="noreferrer noopener"' : ''
+            ( isset( $attributes['linkTarget'] ) && $attributes['linkTarget'] ) ? ' target="' . $attributes['linkTarget'] . '"' : ''
         );
     }
 

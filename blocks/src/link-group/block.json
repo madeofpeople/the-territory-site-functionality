@@ -2,15 +2,15 @@
     "apiVersion": 2,
     "version": "1.0.0",
     "textdomain": "site-functionality",
-    "name": "site-functionality/tout-linked",
-    "title": "Linked Tout",
-    "icon": "share-alt2",
+    "name": "site-functionality/link-group",
+    "title": "Link Group",
+    "icon": "admin-links",
     "category": "touts",
     "collection": "site-functionality",
-    "description": "Display a linked tout on page",
+    "description": "Display a linked group of blocks.",
     "keywords": [
         "callout",
-        "tout",
+        "group",
         "button"
     ],
     "attributes": {
@@ -26,7 +26,7 @@
         },
         "className": {
             "type": "string",
-            "default": "tout linked"
+            "default": "link-group"
         },
         "anchor": {
 			"type": "string"
