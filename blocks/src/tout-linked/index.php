@@ -31,10 +31,9 @@ function render( $attributes, $content, $block ) {
     $output = '<div ' . $wrapper_attributes . '>';
 
     if( isset( $attributes['url'] ) && $attributes['url'] ) {
-        $output .= sprintf( '<a href="%1$s"%2$s%3$s class="tout__link">', 
+        $output .= sprintf( '<a href="%1$s"%2$s class="tout__link">', 
             \esc_url( $attributes['url'] ), 
-            ( isset( $attributes['linkTarget'] ) && $attributes['linkTarget'] ) ? ' target="' . $attributes['linkTarget'] . '"' : '',
-            ( isset( $attributes['linkTarget'] ) && $attributes['linkTarget'] ) ? ' rel="noreferrer noopener"' : ''
+            ( isset( $attributes['linkTarget'] ) && $attributes['linkTarget'] ) ? ' target="' . $attributes['linkTarget'] . '"' : ''
         );
     }
 
