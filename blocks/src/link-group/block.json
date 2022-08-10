@@ -1,0 +1,77 @@
+{
+    "apiVersion": 2,
+    "version": "1.0.0",
+    "textdomain": "site-functionality",
+    "name": "site-functionality/link-group",
+    "title": "Link Group",
+    "icon": "admin-links",
+    "category": "touts",
+    "collection": "site-functionality",
+    "description": "Display a linked group of blocks.",
+    "keywords": [
+        "callout",
+        "group",
+        "button"
+    ],
+    "attributes": {
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "linkTarget": {
+			"type": "string"
+		},
+		"rel": {
+			"type": "string"
+        },
+        "className": {
+            "type": "string",
+            "default": "link-group"
+        },
+        "anchor": {
+			"type": "string"
+        }
+    },
+    "supports": {
+        "align": true,
+        "anchor": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": false,
+            "link": false
+        },
+        "customClassName": true,
+        "defaultStylePicker": false,
+        "__experimentalLayout": false,
+        "__experimentalStyle": false,
+        "__experimentalBorder": false
+    },
+    "example" : {
+        "attributes": {
+            "className": "tout linked",
+            "url": "#"
+        },
+        "innerBlocks": [
+            {
+                "name": "core/heading",
+                "attributes": {
+                    "level": 3,
+                    "className": "tout__title",
+                    "content": "Donate to the Uru-eu-WAU-WAU Association"
+                }
+            },
+            {
+                "name": "core/image",
+                "attributes": {
+                    "className": "tout__image",
+                    "sizeSlug": "full",
+                    "url": "https://images.unsplash.com/photo-1617573211120-1165b16c2900"
+                }
+            }
+        ]
+    },
+    "style": "file:../../build/style-index.css",
+    "editorScript": "site-functionality",
+	"editorStyle": "file:../../build/index.css"
+}
