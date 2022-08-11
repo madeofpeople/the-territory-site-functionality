@@ -54,7 +54,7 @@
     },
     "example" : {
         "attributes": {
-            "className": "tout linked",
+            "className": "link-group",
             "url": "#"
         },
         "innerBlocks": [
