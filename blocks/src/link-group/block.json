@@ -30,6 +30,11 @@
         },
         "anchor": {
 			"type": "string"
+        },
+        "attributesForBlocks":{
+            "title": "",
+            "data-vars-ga-label": "",
+            "data-vars-ga-category": ""
         }
     },
     "supports": {
