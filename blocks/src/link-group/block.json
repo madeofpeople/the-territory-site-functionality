@@ -59,20 +59,25 @@
         },
         "innerBlocks": [
             {
-                "name": "core/heading",
-                "attributes": {
-                    "level": 3,
-                    "className": "tout__title",
-                    "content": "Donate to the Uru-eu-WAU-WAU Association"
-                }
-            },
-            {
-                "name": "core/image",
-                "attributes": {
-                    "className": "tout__image",
-                    "sizeSlug": "full",
-                    "url": "https://images.unsplash.com/photo-1617573211120-1165b16c2900"
-                }
+                "name": "core/group",
+                "attributes": {},
+                "innerBlocks": [
+                    {
+                        "name": "core/image",
+                        "attributes": {
+                            "className": "link-group__image",
+                            "sizeSlug": "medium",
+                            "url": "https://live.staticflickr.com/7271/6941148040_e7221059d9_b.jpg"
+                        }
+                    },
+                    {
+                        "name": "core/paragraph",
+                        "attributes": {
+                            "className": "link-group__content",
+                            "content": "Donate to the Uru-eu-Wau-Wau Association"
+                        }
+                    }
+                ]
             }
         ]
     },
