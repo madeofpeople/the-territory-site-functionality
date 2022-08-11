@@ -31,7 +31,7 @@ function render( $attributes, $content, $block ) {
         return '';
     }
 
-    $output .= sprintf( '<a href="%1$s"%2$s%3$s>', 
+    $output = sprintf( '<a href="%1$s"%2$s%3$s>', 
         \esc_url( $attributes['url'] ), 
         ( isset( $attributes['linkTarget'] ) && $attributes['linkTarget'] ) ? ' target="' . $attributes['linkTarget'] . '"' : '',
         $wrapper_attributes
