@@ -22,10 +22,6 @@ $video_formats   = array(
 );
 
 if ( ! empty( $images ) ) :
-    $link = \get_post_meta( $post_id, 'link', true );
-    $message = \get_post_meta( $post_id, 'message', true );
-    ?>
-    <article id="post-<?php echo $post_id; ?>" class="social-post<?php echo esc_attr( $extra_classname ); ?>">
 	$link    = \get_post_meta( $post_id, 'link', true );
 	$message = \get_post_meta( $post_id, 'message', true );
 	if ( SiteFunctionality\Blocks\has_video( $images ) ) {
@@ -34,39 +30,55 @@ if ( ! empty( $images ) ) :
 	?>
 	<article id="post-<?php echo $post_id; ?>" class="social-post<?php echo esc_attr( $extra_classname ); ?>">
 
-        <ul class="image-group">
-            <?php
-            foreach( $images as $image_id ) :
+		<ul class="image-group">
+			<?php
+			foreach ( $images as $image_id ) :
                 ?>
-                <li id="image-<?php echo $image_id; ?>"><?php echo \wp_get_attachment_image( $image_id, 'full' ); ?></li>
+				<li id="image-<?php echo $image_id; ?>">
                 <?php
-            endforeach;
-            ?>
-        </ul><!-- .image-groupt -->
-
-        <div class="share-actions">
-            <ul class="wp-block-outermost-social-sharing is-style-logos-only">
-                <?php
-                if ( \get_post_meta( $post_id, 'link', true ) || \get_post_meta( $post_id, 'message', true ) ) :
-                    foreach ( $share_services as $service ) :
-                        ?>
-                        <?php echo Site_Functionality\Blocks\SocialCards\render_block_social_sharing_link( $service, $post_id ); ?>
-                        <?php
-                    endforeach;
+                if ( SiteFunctionality\Blocks\is_video( $image_id, $video_formats ) ) :
+                    $data_type = SiteFunctionality\Blocks\get_data_type( $image_id );
+                    ?>
+                    <video>
+                        <source src="<?php echo \wp_get_attachment_url( $image_id );?>" type="video/<?php echo \esc_attr( $data_type ); ?>">
+                        <?php \esc_html_e( 'Video is not supported', 'the-territory' ); ?>
+                    </video>
+                    <?php
+                else :
+                    ?>
+					<?php echo \wp_get_attachment_image( $image_id, 'full' ); ?>
+                    <?php
                 endif;
-
-                foreach ( $services as $service ) :
-                    if ( \get_post_meta( $post_id, $service, true ) ) :
-                        ?>
-                        <?php echo Site_Functionality\Blocks\SocialCards\render_block_social_sharing_link( $service, $post_id ); ?>
-                        <?php
-                    endif;
-                endforeach;
                 ?>
-            </ul><!-- .wp-block-outermost-social-sharing -->
-        </div><!-- .share-actions -->
+				</li>
+				<?php
+			endforeach;
+			?>
+		</ul><!-- .image-group -->
 
-    </article><!-- .social-post -->
+		<div class="share-actions">
+			<ul class="wp-block-outermost-social-sharing is-style-logos-only">
+				<?php
+				if ( \get_post_meta( $post_id, 'link', true ) || \get_post_meta( $post_id, 'message', true ) ) :
+					foreach ( $share_services as $service ) :
+						?>
+						<?php echo Site_Functionality\Blocks\SocialCards\render_block_social_sharing_link( $service, $post_id ); ?>
+						<?php
+					endforeach;
+				endif;
 
-    <?php
+				foreach ( $services as $service ) :
+					if ( \get_post_meta( $post_id, $service, true ) ) :
+						?>
+						<?php echo Site_Functionality\Blocks\SocialCards\render_block_social_sharing_link( $service, $post_id ); ?>
+						<?php
+					endif;
+				endforeach;
+				?>
+			</ul><!-- .wp-block-outermost-social-sharing -->
+		</div><!-- .share-actions -->
+
+	</article><!-- .social-post -->
+
+	<?php
 endif;
