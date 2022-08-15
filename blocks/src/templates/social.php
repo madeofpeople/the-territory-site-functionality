@@ -19,6 +19,7 @@ $extra_classname = $images && count( $images ) > 1 ? ' has-multiple-images' : ''
 $video_formats   = array(
 	'mp4',
 	'webm',
+	'm4v'
 );
 
 if ( ! empty( $images ) ) :

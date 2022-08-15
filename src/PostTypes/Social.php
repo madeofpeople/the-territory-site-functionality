@@ -89,7 +89,7 @@ class Social extends PostType {
 						'max_width'         => '',
 						'max_height'        => '',
 						'max_size'          => '',
-						'mime_types'        => 'jpg, png, gif, webp, mp4, webm',
+						'mime_types'        => 'jpg, png, gif, webp, mp4, webm, m4v',
 					),
 					array(
 						'key'               => 'field_social_message',

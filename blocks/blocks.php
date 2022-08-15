@@ -70,7 +70,7 @@ function is_video( int $media_id, $formats = array( 'mp4', 'webm' ) ) {
  */
 function get_data_type( int $media_id ) {
 	$media_attributes = \wp_get_attachment_url( $media_id );
-	$data_type = pathinfo( $media_attributes, PATHINFO_EXTENSION );
+	$data_type = 'm4v' === pathinfo( $media_attributes, PATHINFO_EXTENSION ) ? 'mp4' : pathinfo( $media_attributes, PATHINFO_EXTENSION );
 	return $data_type;
 }
 
