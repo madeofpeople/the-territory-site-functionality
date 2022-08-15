@@ -14,8 +14,6 @@ include_once \plugin_dir_path( __FILE__ ) . 'src/social-cards/index.php';
 include_once \plugin_dir_path( __FILE__ ) . 'src/tout/index.php';
 include_once \plugin_dir_path( __FILE__ ) . 'src/tout-linked/index.php';
 
-
-
 const TEMPLATE_PARAMS = array(
 	'filter_prefix'             => 'site_functionality',
 	'plugin_directory'          => SITE_CORE_DIR,
@@ -25,6 +23,55 @@ const TEMPLATE_PARAMS = array(
 
 function get_template_params() {
 	return TEMPLATE_PARAMS;
+}
+
+/**
+ * Check if contains video
+ * 
+ * @link https://developer.wordpress.org/reference/functions/wp_get_attachment_url/
+ *
+ * @param array $media
+ * @param array $formats
+ * @return boolean
+ */
+function has_video( array $media, $formats = array( 'mp4', 'webm' ) ) {
+	$has_video = false;
+	foreach( $media as $media_id ) {
+		if( $has_video = is_video( $media_id, $formats ) ) {
+			break;
+		}
+	}
+	return $has_video;
+}
+
+/**
+ * Check if is video
+ *
+ * @param integer $media_id
+ * @param array $formats
+ * @return boolean
+ */
+function is_video( int $media_id, $formats = array( 'mp4', 'webm' ) ) {
+	$data_type = get_data_type( $media_id );
+	if( in_array( $data_type, $formats ) ) {
+		return true;
+	}
+	return false;
+}
+
+
+/**
+ * Get data type
+ * 
+ * @link https://developer.wordpress.org/reference/functions/wp_get_attachment_url/
+ *
+ * @param integer $media_id
+ * @return string 
+ */
+function get_data_type( int $media_id ) {
+	$media_attributes = \wp_get_attachment_url( $media_id );
+	$data_type = pathinfo( $media_attributes, PATHINFO_EXTENSION );
+	return $data_type;
 }
 
 /**
