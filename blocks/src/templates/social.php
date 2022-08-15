@@ -26,6 +26,13 @@ if ( ! empty( $images ) ) :
     $message = \get_post_meta( $post_id, 'message', true );
     ?>
     <article id="post-<?php echo $post_id; ?>" class="social-post<?php echo esc_attr( $extra_classname ); ?>">
+	$link    = \get_post_meta( $post_id, 'link', true );
+	$message = \get_post_meta( $post_id, 'message', true );
+	if ( SiteFunctionality\Blocks\has_video( $images ) ) {
+		$extra_classname .= ' has-video';
+	}
+	?>
+	<article id="post-<?php echo $post_id; ?>" class="social-post<?php echo esc_attr( $extra_classname ); ?>">
 
         <ul class="image-group">
             <?php
