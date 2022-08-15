@@ -66,10 +66,10 @@ class Social extends PostType {
 				'fields'                => array(
 					array(
 						'key'               => 'field_social_images',
-						'label'             => __( 'Images', 'site-functionality' ),
+						'label'             => __( 'Media', 'site-functionality' ),
 						'name'              => 'images',
 						'type'              => 'gallery',
-						'instructions'      => __( 'Images to display in share card.', 'site-functionality' ),
+						'instructions'      => __( 'Videos and images to display in share card.', 'site-functionality' ),
 						'required'          => 0,
 						'conditional_logic' => 0,
 						'wrapper'           => array(
@@ -89,7 +89,7 @@ class Social extends PostType {
 						'max_width'         => '',
 						'max_height'        => '',
 						'max_size'          => '',
-						'mime_types'        => 'jpg, png, gif, webp',
+						'mime_types'        => 'jpg, png, gif, webp, mp4, webm',
 					),
 					array(
 						'key'               => 'field_social_message',
