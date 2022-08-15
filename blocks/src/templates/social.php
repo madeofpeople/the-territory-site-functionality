@@ -16,6 +16,10 @@ $services       = array(
 );
 $images         = \get_post_meta( $post_id, 'images', true );
 $extra_classname = $images && count( $images ) > 1 ? ' has-multiple-images' : '';
+$video_formats   = array(
+	'mp4',
+	'webm',
+);
 
 if ( ! empty( $images ) ) :
     $link = \get_post_meta( $post_id, 'link', true );
