@@ -14,8 +14,6 @@ include_once \plugin_dir_path( __FILE__ ) . 'src/social-cards/index.php';
 include_once \plugin_dir_path( __FILE__ ) . 'src/tout/index.php';
 include_once \plugin_dir_path( __FILE__ ) . 'src/tout-linked/index.php';
 
-
-
 const TEMPLATE_PARAMS = array(
 	'filter_prefix'             => 'site_functionality',
 	'plugin_directory'          => SITE_CORE_DIR,
